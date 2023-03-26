@@ -17,6 +17,10 @@ app.use((_req, res, next) => {
   next();
 });
 
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
 const io = socket(server, options);
 
 // Socket
@@ -49,8 +53,6 @@ app.get("*", (_req, res) => {
   res.sendFile(path.resolve(__dirname, "collaborative-code-editor-client", "index.html"));
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+
 
 server.listen(process.env.PORT || 3000);
