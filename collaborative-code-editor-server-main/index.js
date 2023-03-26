@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const options = {
   cors: {
-    origins: "*",
+    origins: ["*", "https://admin.socket.io/"],
   },
 };
 
