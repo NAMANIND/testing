@@ -25,6 +25,10 @@ let state = {
   mode: "text/x-c++src",
 };
 
+app.use((_req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'none'; font-src https://fonts.googleapis.com");
+  next();
+});
 io.on("connection", (socket) => {
   console.log(socket.id);
   io.emit("broadcast", state);
@@ -45,5 +49,7 @@ app.get("*", (_req, res) => {
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
+
+
 
 server.listen(process.env.PORT || 3000);
