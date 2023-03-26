@@ -42,4 +42,8 @@ app.get("*", (_req, res) => {
   res.sendFile(path.resolve(__dirname, "collaborative-code-editor-client", "index.html"));
 });
 
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
 server.listen(process.env.PORT || 3000);
